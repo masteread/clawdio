@@ -1,0 +1,1 @@
+{ "name": "Clawdio Theme", "version": "1.0.0", "scripts": { "dev": "shopify theme dev" }, "devDependencies": { "@shopify/cli": "^3.0.0" } }
