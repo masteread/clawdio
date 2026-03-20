@@ -1,0 +1,12 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "sections": {
+        "contact-form": {
+          "type": "contact-form"
+        }
+      }
+    }
+  }
+}
