@@ -1,0 +1,59 @@
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "copyright_text",
+        "label": "Copyright Text",
+        "default": "<p>&copy; {{ now | date: \"%Y\" }} Your Store Name</p>"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "link_list",
+        "name": "Menu",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Quick Links"
+          },
+          {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Menu to display"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Footer"
+      }
+    ]
+  }
+{% endschema %}
+
+<footer class="footer-section">
+  <div class="footer-content">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when link_list %}
+          <div class="footer-menu">
+            <h3>{{ block.settings.heading }}</h3>
+            <ul>
+              {% for link in block.settings.menu.links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+  <div class="footer-copyright">
+    {{ section.settings.copyright_text }}
+  </div>
+</footer>
+
