@@ -1,0 +1,27 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "sections": {
+        "hero-section": {
+          "type": "hero-section"
+        },
+        "text-with-image": {
+          "type": "text-with-image"
+        },
+        "product-grid": {
+          "type": "product-grid"
+        },
+        "testimonials": {
+          "type": "testimonials"
+        },
+        "contact-form": {
+          "type": "contact-form"
+        },
+        "footer-section": {
+          "type": "footer-section"
+        }
+      }
+    }
+  }
+}
