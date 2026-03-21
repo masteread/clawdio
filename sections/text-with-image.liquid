@@ -21,18 +21,22 @@
         "type": "text",
         "id": "heading",
         "label": "Heading",
-        "default": "Title of Section"
+        "default": "Our Passion for Coffee"
       },
       {
         "type": "richtext",
         "id": "text",
         "label": "Text",
-        "default": "<p>Add your descriptive text here.</p>"
+        "default": "<p>We are dedicated to bringing you the finest coffee beans from around the world. Each bean is hand-picked and expertly roasted to perfection, ensuring a rich and aromatic experience with every cup. Discover our sustainable and ethical sourcing practices.</p>"
       }
     ],
     "presets": [
       {
-        "name": "Text with Image"
+        "name": "Coffee Story",
+        "settings": {
+          "heading": "Our Passion for Coffee",
+          "text": "<p>We are dedicated to bringing you the finest coffee beans from around the world. Each bean is hand-picked and expertly roasted to perfection, ensuring a rich and aromatic experience with every cup. Discover our sustainable and ethical sourcing practices.</p>"
+        }
       }
     ]
   }
@@ -45,12 +49,12 @@
     </div>
   {% else %}
      <div class="image-wrapper">
-        <img src="https://cdn.shopify.com/s/files/1/0533/2088/files/placeholder-image.png" alt="Placeholder Image">
+        <img src="https://cdn.shopify.com/s/files/1/0XXXX/XXXX/files/coffee-beans-placeholder.jpg" alt="Coffee Beans">
      </div>
   {% endif %}
   <div class="text-wrapper">
-    <h2>{{ section.settings.heading | default: "Our Story and Mission" }}</h2>
-    <div>{{ section.settings.text | default: "<p>At our core, we believe in delivering exceptional quality and unparalleled customer service. Every product is crafted with passion and precision, ensuring you receive only the best. Join us on our journey to innovate and inspire.</p>" }}</div>
+    <h2>{{ section.settings.heading | default: "Our Passion for Coffee" }}</h2>
+    <div>{{ section.settings.text | default: "<p>We are dedicated to bringing you the finest coffee beans from around the world. Each bean is hand-picked and expertly roasted to perfection, ensuring a rich and aromatic experience with every cup. Discover our sustainable and ethical sourcing practices.</p>" }}</div>
   </div>
 </section>
 
@@ -60,17 +64,25 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 30px;
+    padding: 60px 20px;
   }
   .text-with-image.image-right {
-    flex-direction: row-reverse; /* Image on right */
+    flex-direction: row-reverse;
   }
   .text-with-image .image-wrapper, .text-with-image .text-wrapper {
     flex: 1;
-    min-width: 300px; /* Adjust as needed */
+    min-width: 300px;
   }
   .text-with-image img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .text-with-image h2 {
+    font-size: 2.5em;
+  }
+  .text-with-image p {
+    font-size: 1.1em;
   }
 </style>
