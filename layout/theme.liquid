@@ -1,11 +1,23 @@
 <!doctype html>
-<html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
-    <title>{{ shop.name }}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#6F4E37">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Georgia&display=swap" rel="stylesheet">
+
+    <title>{{ shop.name }} - {% if template.name == 'index' %}Home{% else %}{{ page_title }}{% endif %}</title>
+
     {{ content_for_header }}
+
+    {{ 'styles.css' | asset_url | stylesheet_tag }}
   </head>
   <body>
-    <main>
+    <main role="main">
       {% section 'hero-section' %}
       {% section 'text-with-image' %}
       {% section 'product-grid' %}
