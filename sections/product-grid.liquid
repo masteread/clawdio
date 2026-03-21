@@ -6,7 +6,7 @@
         "type": "text",
         "id": "title",
         "label": "Heading",
-        "default": "Featured Products"
+        "default": "Our Exclusive Coffee Selection"
       },
       {
         "type": "collection",
@@ -25,14 +25,17 @@
     ],
     "presets": [
       {
-        "name": "Product Grid"
+        "name": "Coffee Products",
+        "settings": {
+          "title": "Our Exclusive Coffee Selection"
+        }
       }
     ]
   }
 {% endschema %}
 
 <section class="product-grid">
-  <h2>{{ section.settings.title | default: "Our Top Picks" }}</h2>
+  <h2>{{ section.settings.title | default: "Our Exclusive Coffee Selection" }}</h2>
   <div class="product-items">
     {% comment %}
       Demonstration products if no collection is selected or products are missing.
@@ -52,12 +55,14 @@
       {% endfor %}
     {% else %}
       {% comment %} Dummy products for demonstration if no collection is set {% endcomment %}
-      {% for i in (1..section.settings.products_to_show) %}
+      {% assign dummy_products = "Espresso Blend,Ethiopian Yirgacheffe,Colombian Supremo,Decaf House Blend,Sumatra Mandheling,Guatemala Antigua" | split: "," %}
+      {% for i in (0..section.settings.products_to_show | minus: 1) %}
+        {% assign product_name = dummy_products[i | modulo: dummy_products.size] %}
         <div class="product-item">
           <a href="#">
-            <img src="https://cdn.shopify.com/s/files/1/0533/2088/files/placeholder-image.png" alt="Placeholder Product {{ i }}">
-            <h3>Dummy Product {{ i }}</h3>
-            <p>$1{{ i }}.99</p>
+            <img src="https://cdn.shopify.com/s/files/1/0XXXX/XXXX/files/coffee-product-placeholder-{{ i | plus: 1 }}.jpg" alt="{{ product_name }}">
+            <h3>{{ product_name }}</h3>
+            <p>${{ 10 | plus: i }}.99</p>
           </a>
         </div>
       {% endfor %}

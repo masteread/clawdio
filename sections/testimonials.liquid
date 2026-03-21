@@ -6,7 +6,7 @@
         "type": "text",
         "id": "heading",
         "label": "Heading",
-        "default": "What Our Customers Say"
+        "default": "What Our Customers Say About Our Coffee"
       }
     ],
     "blocks": [
@@ -31,27 +31,27 @@
     ],
     "presets": [
       {
-        "name": "Testimonials",
+        "name": "Coffee Testimonials",
         "blocks": [
           {
             "type": "testimonial",
             "settings": {
-              "quote": "<p>"Our products have transformed my daily routine. Highly recommend!"</p>",
-              "author": "Jane D."
+              "quote": "<p>\"The aroma alone is enough to wake me up with a smile. Best coffee I've ever tasted!\"</p>",
+              "author": "Coffee Lover Jane D."
             }
           },
           {
             "type": "testimonial",
             "settings": {
-              "quote": "<p>"Exceptional quality and fast shipping. A pleasure to shop here."</p>",
-              "author": "John S."
+              "quote": "<p>\"Finally, a coffee that matches my high standards. Rich, smooth, and perfectly roasted.\"</p>",
+              "author": "Barista John S."
             }
           },
           {
             "type": "testimonial",
             "settings": {
-              "quote": "<p>"I found exactly what I needed. The customer service was fantastic!"</p>",
-              "author": "Emily R."
+              "quote": "<p>\"Their subscription service is a game-changer. Fresh coffee, no fuss, every month!\"</p>",
+              "author": "Daily Brew Emily R."
             }
           }
         ]
@@ -61,7 +61,7 @@
 {% endschema %}
 
 <section class="testimonials-section">
-  <h2>{{ section.settings.heading | default: "Voices of Satisfaction" }}</h2>
+  <h2>{{ section.settings.heading | default: "Voices of Coffee Enthusiasts" }}</h2>
   <div class="testimonials-grid">
     {% if section.blocks.size > 0 %}
       {% for block in section.blocks %}
@@ -73,12 +73,12 @@
     {% else %}
       {% comment %} Dummy testimonials if no blocks are configured {% endcomment %}
       <div class="testimonial-item">
-        <div class="quote"><p>"This is a placeholder testimonial. Configure your own in the theme editor!"</p></div>
-        <p class="author">- Dummy Customer</p>
+        <div class="quote"><p>"This coffee makes my mornings so much better! A truly delightful experience."</p></div>
+        <p class="author">- Happy Customer</p>
       </div>
       <div class="testimonial-item">
-        <div class="quote"><p>"Another great experience with this store. Fantastic products."</p></div>
-        <p class="author">- Happy Shopper</p>
+        <div class="quote"><p>"I'm impressed by the quality and the smooth finish. Will definitely reorder."</p></div>
+        <p class="author">- Satisfied Sipper</p>
       </div>
     {% endif %}
   </div>

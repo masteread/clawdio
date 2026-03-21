@@ -178,3 +178,88 @@ section {
   font-size: 0.9em;
   color: #bbb;
 }
+
+/* Coffee Website Specific Styling */
+
+:root {
+  --color-primary: #6F4E37; /* Coffee brown */
+  --color-secondary: #A0522D; /* Sienna */
+  --color-accent: #E1B25C; /* Gold */
+  --color-text-dark: #333333;
+  --color-text-light: #ffffff;
+  --color-background-light: #FDF5E6; /* Old Lace */
+  --color-background-dark: #4A2C2A; /* Darker brown */
+}
+
+body {
+  font-family: 'Georgia', serif;
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  background-color: var(--color-background-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: var(--color-primary);
+}
+
+/* Override Hero Section */
+.hero-section {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+}
+.hero-section h1 {
+  color: var(--color-accent);
+}
+.hero-section a {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+}
+.hero-section a:hover {
+  background-color: #C89F4A;
+}
+
+/* Override Text with Image Section */
+.text-with-image h2 {
+  color: var(--color-secondary);
+}
+
+/* Override Product Grid Section */
+.product-grid {
+  background-color: var(--color-background-light);
+}
+.product-grid h2 {
+  color: var(--color-primary);
+}
+.product-item {
+  border: 1px solid #e0e0e0;
+}
+.product-item h3 {
+  color: var(--color-secondary);
+}
+.product-item p {
+  color: var(--color-primary);
+}
+
+/* Override Testimonials Section */
+.testimonials-section {
+  background-color: #FAEBD7; /* Antique white */
+}
+.testimonials-section h2 {
+  color: var(--color-primary);
+}
+.testimonial-item {
+  border-left-color: var(--color-secondary);
+}
+
+/* Override Footer Section */
+.footer-section {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+}
+.footer-menu h3 {
+  color: var(--color-accent);
+}
+.footer-menu li a {
+  color: var(--color-text-light);
+}

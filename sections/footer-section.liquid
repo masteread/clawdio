@@ -6,7 +6,7 @@
         "type": "richtext",
         "id": "copyright_text",
         "label": "Copyright Text",
-        "default": "<p>&copy; {{ 'now' | date: \"%Y\" }} Your Store Name</p>"
+        "default": "<p>&copy; {{ 'now' | date: \"%Y\" }} Coffee Roasters Inc.</p>"
       }
     ],
     "blocks": [
@@ -35,40 +35,40 @@
             "type": "text",
             "id": "heading",
             "label": "Heading",
-            "default": "About Us"
+            "default": "About Our Coffee"
           },
           {
             "type": "richtext",
             "id": "text",
             "label": "Text",
-            "default": "<p>We are a passionate team dedicated to bringing you the best products.</p>"
+            "default": "<p>We are a passionate team dedicated to sourcing and roasting the finest coffee beans for you.</p>"
           }
         ]
       }
     ],
     "presets": [
       {
-        "name": "Footer",
+        "name": "Coffee Footer",
         "blocks": [
           {
             "type": "link_list",
             "settings": {
               "heading": "Customer Service",
-              "menu": "footer"
+              "menu": "footer" /* Assuming 'footer' is a handle for a link list in Shopify navigation */
             }
           },
           {
             "type": "link_list",
             "settings": {
               "heading": "Information",
-              "menu": "main-menu"
+              "menu": "main-menu" /* Assuming 'main-menu' is a handle for a link list */
             }
           },
           {
             "type": "text_block",
             "settings": {
               "heading": "Stay Connected",
-              "text": "<p>Follow us on social media for updates and offers!</p>"
+              "text": "<p>Follow us on social media for fresh roasts and special offers!</p>"
             }
           }
         ]
@@ -84,34 +84,35 @@
         {% case block.type %}
           {% when 'link_list' %}
             <div class="footer-menu">
-              <h3>{{ block.settings.heading }}</h3>
+              <h3>{{ block.settings.heading | default: "Quick Links" }}</h3>
               <ul>
                 {% for link in block.settings.menu.links %}
                   <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                 {% else %}
                   {% comment %} Dummy links if no menu is selected {% endcomment %}
-                  <li><a href="#">Dummy Link 1</a></li>
-                  <li><a href="#">Dummy Link 2</a></li>
+                  <li><a href="#">Our Story</a></li>
+                  <li><a href="#">FAQs</a></li>
+                  <li><a href="#">Contact</a></li>
                 {% endfor %}
               </ul>
             </div>
           {% when 'text_block' %}
             <div class="footer-text-block">
-              <h3>{{ block.settings.heading }}</h3>
-              <div>{{ block.settings.text }}</div>
+              <h3>{{ block.settings.heading | default: "About Our Coffee" }}</h3>
+              <div>{{ block.settings.text | default: "<p>Dedicated to ethical sourcing and exceptional taste, we bring the world's best coffee to your cup.</p>" }}</div>
             </div>
         {% endcase %}
       {% endfor %}
     </div>
     <div class="footer-copyright">
-      {{ section.settings.copyright_text | default: "<p>&copy; 2026 Your Store Name</p>" }}
+      {{ section.settings.copyright_text | default: "<p>&copy; 2026 Coffee Roasters Inc.</p>" }}
     </div>
   </div>
 </footer>
 
 <style>
   .footer-section .page-width {
-    max-width: 1200px; /* Example max-width for content */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
   }
