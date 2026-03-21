@@ -5,7 +5,14 @@
     {{ content_for_header }}
   </head>
   <body>
-    <main>{{ content_for_layout }}</main>
+    <main>
+      {% section 'hero-section' %}
+      {% section 'text-with-image' %}
+      {% section 'product-grid' %}
+      {% section 'testimonials' %}
+      {% section 'contact-form' %}
+    </main>
+    {% section 'footer-section' %}
     {{ content_for_footer }}
   </body>
 </html>
