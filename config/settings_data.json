@@ -1,0 +1,90 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "sections": {
+        "hero-section": {
+          "type": "hero-section",
+          "settings": {
+            "heading": "Experience the Art of Coffee",
+            "subheading": "<p>Freshly roasted, ethically sourced beans delivered to your door.</p>",
+            "button_label": "Shop Our Coffees",
+            "button_link": "/collections/all"
+          }
+        },
+        "text-with-image": {
+          "type": "text-with-image",
+          "settings": {
+            "heading": "Our Passion for Coffee",
+            "text": "<p>We are dedicated to bringing you the finest coffee beans from around the world. Each bean is hand-picked and expertly roasted to perfection, ensuring a rich and aromatic experience with every cup. Discover our sustainable and ethical sourcing practices.</p>"
+          }
+        },
+        "product-grid": {
+          "type": "product-grid",
+          "settings": {
+            "title": "Our Exclusive Coffee Selection",
+            "products_to_show": 4
+          }
+        },
+        "testimonials": {
+          "type": "testimonials",
+          "settings": {
+            "heading": "What Our Customers Say About Our Coffee"
+          },
+          "blocks": [
+            {
+              "type": "testimonial",
+              "settings": {
+                "quote": "<p>\"The aroma alone is enough to wake me up with a smile. Best coffee I've ever tasted!\"</p>",
+                "author": "Coffee Lover Jane D."
+              }
+            },
+            {
+              "type": "testimonial",
+              "settings": {
+                "quote": "<p>\"Exceptional quality and fast shipping. A pleasure to shop here.\"</p>",
+                "author": "Barista John S."
+              }
+            }
+          ]
+        },
+        "contact-form": {
+          "type": "contact-form",
+          "settings": {
+            "heading": "Contact Us for Your Coffee Needs",
+            "description": "<p>Have a question about our beans, brewing, or subscriptions? We'd love to hear from you!</p>"
+          }
+        },
+        "footer-section": {
+          "type": "footer-section",
+          "settings": {
+            "copyright_text": "<p>&copy; {{ 'now' | date: \"%Y\" }} Coffee Roasters Inc.</p>"
+          },
+          "blocks": [
+            {
+              "type": "link_list",
+              "settings": {
+                "heading": "Customer Service",
+                "menu": "footer"
+              }
+            },
+            {
+              "type": "link_list",
+              "settings": {
+                "heading": "Information",
+                "menu": "main-menu"
+              }
+            },
+            {
+              "type": "text_block",
+              "settings": {
+                "heading": "Stay Connected",
+                "text": "<p>Follow us on social media for fresh roasts and special offers!</p>"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
