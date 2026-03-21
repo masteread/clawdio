@@ -1,0 +1,133 @@
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "copyright_text",
+        "label": "Copyright Text",
+        "default": "<p>&copy; {{ 'now' | date: \"%Y\" }} Your Store Name</p>"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "link_list",
+        "name": "Menu",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Quick Links"
+          },
+          {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Menu to display"
+          }
+        ]
+      },
+      {
+        "type": "text_block",
+        "name": "Text Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "About Us"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>We are a passionate team dedicated to bringing you the best products.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Footer",
+        "blocks": [
+          {
+            "type": "link_list",
+            "settings": {
+              "heading": "Customer Service",
+              "menu": "footer"
+            }
+          },
+          {
+            "type": "link_list",
+            "settings": {
+              "heading": "Information",
+              "menu": "main-menu"
+            }
+          },
+          {
+            "type": "text_block",
+            "settings": {
+              "heading": "Stay Connected",
+              "text": "<p>Follow us on social media for updates and offers!</p>"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+<footer class="footer-section">
+  <div class="page-width">
+    <div class="footer-content">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'link_list' %}
+            <div class="footer-menu">
+              <h3>{{ block.settings.heading }}</h3>
+              <ul>
+                {% for link in block.settings.menu.links %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% else %}
+                  {% comment %} Dummy links if no menu is selected {% endcomment %}
+                  <li><a href="#">Dummy Link 1</a></li>
+                  <li><a href="#">Dummy Link 2</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% when 'text_block' %}
+            <div class="footer-text-block">
+              <h3>{{ block.settings.heading }}</h3>
+              <div>{{ block.settings.text }}</div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+    <div class="footer-copyright">
+      {{ section.settings.copyright_text | default: "<p>&copy; 2026 Your Store Name</p>" }}
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-section .page-width {
+    max-width: 1200px; /* Example max-width for content */
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: left;
+  }
+  .footer-menu ul {
+    padding-left: 0;
+  }
+  .footer-menu li {
+    margin-bottom: 5px;
+  }
+  .footer-menu a, .footer-text-block p {
+    font-size: 0.9em;
+  }
+</style>

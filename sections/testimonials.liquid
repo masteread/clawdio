@@ -1,0 +1,85 @@
+{% schema %}
+  {
+    "name": "Testimonials",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "What Our Customers Say"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "testimonial",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "quote",
+            "label": "Quote",
+            "default": "<p>This is an amazing product!</p>"
+          },
+          {
+            "type": "text",
+            "id": "author",
+            "label": "Author",
+            "default": "Customer Name"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonials",
+        "blocks": [
+          {
+            "type": "testimonial",
+            "settings": {
+              "quote": "<p>"Our products have transformed my daily routine. Highly recommend!"</p>",
+              "author": "Jane D."
+            }
+          },
+          {
+            "type": "testimonial",
+            "settings": {
+              "quote": "<p>"Exceptional quality and fast shipping. A pleasure to shop here."</p>",
+              "author": "John S."
+            }
+          },
+          {
+            "type": "testimonial",
+            "settings": {
+              "quote": "<p>"I found exactly what I needed. The customer service was fantastic!"</p>",
+              "author": "Emily R."
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+<section class="testimonials-section">
+  <h2>{{ section.settings.heading | default: "Voices of Satisfaction" }}</h2>
+  <div class="testimonials-grid">
+    {% if section.blocks.size > 0 %}
+      {% for block in section.blocks %}
+        <div class="testimonial-item">
+          <div class="quote">{{ block.settings.quote }}</div>
+          <p class="author">- {{ block.settings.author }}</p>
+        </div>
+      {% endfor %}
+    {% else %}
+      {% comment %} Dummy testimonials if no blocks are configured {% endcomment %}
+      <div class="testimonial-item">
+        <div class="quote"><p>"This is a placeholder testimonial. Configure your own in the theme editor!"</p></div>
+        <p class="author">- Dummy Customer</p>
+      </div>
+      <div class="testimonial-item">
+        <div class="quote"><p>"Another great experience with this store. Fantastic products."</p></div>
+        <p class="author">- Happy Shopper</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
